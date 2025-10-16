@@ -1,0 +1,630 @@
+:root {
+  --bg: #eef1f9;
+  --fg: #1e1f26;
+  --muted: #5b5e77;
+  --accent: #6366f1; /* indigo */
+  --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+  --card: rgba(255,255,255,0.6);
+  --blur: 14px;
+}
+[data-theme="dark"] {
+  --bg: #0b0f19;
+  --fg: #f1f5f9;
+  --muted: #9ca3af;
+  --accent: #a78bfa; /* soft purple */
+  --gradient: linear-gradient(135deg, #4f46e5, #8b5cf6);
+  --card: rgba(17,24,39,0.55);
+  --blur: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--card);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  background: var(--gradient);
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation */
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 500;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.3s;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Theme Toggle */
+.theme-switch {
+  position: relative;
+  width: 60px;
+  height: 28px;
+}
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.theme-switch .slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  border-radius: 30px;
+  background: var(--muted);
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 14px;
+}
+.theme-switch .icon {
+  transition: opacity 0.4s, transform 0.4s;
+}
+.theme-switch .moon { opacity: 0; transform: scale(0.8); }
+input:checked + .slider { background: var(--accent); }
+input:checked + .slider .sun { opacity: 0; transform: scale(0.8); }
+input:checked + .slider .moon { opacity: 1; transform: scale(1); }
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+}
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+p, li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Hero */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  text-align: center;
+}
+.name {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.designation {
+  color: var(--muted);
+  font-size: 1.3rem;
+}
+.scroll-down {
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: var(--accent);
+  text-decoration: none;
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Common glass cards */
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(var(--blur));
+  padding: 0.5rem;
+}
+
+/* Experience timeline */
+.timeline {
+  display: grid;
+  gap: 1.5rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+}
+.timeline-item h3 {
+  margin: 0;
+}
+.timeline-item span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+.skill {
+  padding: 1rem;
+  border-radius: 14px;
+  font-weight: 600;
+  background: var(--card);
+}
+
+/* Achievements */
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* space between achievements */
+}
+
+.achievements-list li {
+  display: flex;
+  gap: 12px;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius:  12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.achievements-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.achievement-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.achievement-text {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Game */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin: 2rem auto;
+}
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.cell:hover {
+  background: var(--gradient);
+  color: white;
+}
+#status {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.accent-btn {
+  background: var(--gradient);
+  color: white;
+  transition: transform 0.2s ease;
+}
+.accent-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--card);
+  backdrop-filter: blur(var(--blur));
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Section card wrapper */
+.section-card {
+  width:60vw;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  background: var(--card);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* Inner card styling (for education, projects etc.) */
+.card-inner {
+  background: rgba(255,255,255,0.15);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--fg);
+  font-size: 1rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.1);
+}
+/* ===== Game Rules Modal ===== */
+/* ===== Game Header Layout ===== */
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* ensures responsiveness */
+}
+.game-header h2 {
+  margin: 0;
+}
+.rules-btn {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.rules-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== Modal (unchanged except minor polish) ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  position: relative;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease;
+}
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  color: black;
+  line-height: 1.6;
+}
+.modal-content li {
+  margin: 0.4rem 0;
+}
+.modal-content li strong {
+  color: var(--accent);
+}
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--accent);
+  transition: 0.2s;
+}
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+.about-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.about-card h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+
+
+.about-content strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    padding: 1.5rem;
+  }
+}
+
+
+/* ===== Experience Carousel ===== */
+.experience-carousel {
+  display: flex;
+  overflow: hidden; /* hide excess content */
+  position: relative;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+}
+
+.exp-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start; /* align to left */
+  margin: 1rem; /* spacing around card */
+  padding: 2rem;
+  /* horizontal offset, vertical offset, blur, spread, color */
+  box-shadow: 0 0 15px 0 var(--accent); 
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exp-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px 0 var(--accent); /* stronger shadow on all sides */
+}
+
+
+.exp-card h3, h2 {
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+}
+.exp-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+.exp-card ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+.exp-card li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.exp-card li::before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: -0.8rem;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.carousel-btn {
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.carousel-btn:hover {
+  transform: scale(1.1);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px; /* more spacing between skill cards */
+  margin-top: 1rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between icon and text */
+  text-align: center;
+  width: 180px;   /* fixed width */
+  height: 60px;   /* fixed height */
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05));
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Slight hover effect */
+.skill:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+
+
+
+
+.skill-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.achievements-list li:nth-child(1) {
+  background: rgba(255, 179, 186, 0.2);
+  border-left: 4px solid rgba(255, 179, 186, 0.5);
+}
+
+.achievements-list li:nth-child(2) {
+  background: rgba(255, 223, 186, 0.2);
+  border-left: 4px solid rgba(255, 223, 186, 0.5);
+}
+
+.achievements-list li:nth-child(3) {
+  background: rgba(186, 225, 255, 0.2);
+  border-left: 4px solid rgba(186, 225, 255, 0.5);
+}
+
+.achievements-list li:nth-child(4) {
+  background: rgba(186, 255, 201, 0.2);
+  border-left: 4px solid rgba(186, 255, 201, 0.5);
+}
+
+
+.contact-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column; /* stack icon + label */
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 6px;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  text-align: center;
+}
