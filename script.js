@@ -118,4 +118,22 @@ skills.forEach(skill => {
   skill.style.background = getRandomPastelColor();
   skill.style.border = `1px solid ${getRandomBorderColor()}`;
 });
+const menuToggle = document.getElementById("menuToggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    menuToggle.addEventListener("click", () => {
+      if (mobileNav.style.display === "flex") {
+        mobileNav.style.display = "none";
+      } else {
+        mobileNav.style.display = "flex";
+      }
+    });
+
+    // Close menu on link click
+    document.querySelectorAll("#mobileNav a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileNav.style.display = "none";
+      });
+    });
+
 

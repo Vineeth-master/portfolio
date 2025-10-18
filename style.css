@@ -133,7 +133,7 @@ p, li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  min-height: 100vh;
   text-align: center;
 }
 .name {
@@ -427,7 +427,7 @@ p, li {
 }
 
 .about-card {
-  max-width: 800px;
+  min-width: 60vw;
   margin: 0 auto;
   padding: 2.5rem;
   border-radius: 20px;
@@ -627,4 +627,74 @@ p, li {
 .contact-label {
   font-size: 0.85rem;
   text-align: center;
+}
+
+/* Hide nav-links and show hamburger on small screens */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .section-card,.about-card {
+  width:80vw;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: var(--fg);
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+.mobile-nav {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--card);
+      flex-direction: column;
+      padding: 1rem 2rem;
+      z-index: 999;
+      border-radius: 0 0 12px 12px;
+      animation: slideDown 0.3s ease forwards;
+    }
+
+    .mobile-nav a {
+      padding: 1rem 0;
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--accent);
+    }
+
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Show nav-links and hide hamburger on larger screens */
+@media (min-width: 901px) {
+  .hamburger {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none !important;
+  }
 }
