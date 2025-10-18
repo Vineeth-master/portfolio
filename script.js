@@ -113,27 +113,33 @@ function getRandomBorderColor() {
 }
 
 // Apply random colors to each skill card
-const skills = document.querySelectorAll('.skill');
-skills.forEach(skill => {
-  skill.style.background = getRandomPastelColor();
-  skill.style.border = `1px solid ${getRandomBorderColor()}`;
-});
 const menuToggle = document.getElementById("menuToggle");
-    const mobileNav = document.getElementById("mobileNav");
+const mobileNav = document.getElementById("mobileNav");
 
-    menuToggle.addEventListener("click", () => {
-      if (mobileNav.style.display === "flex") {
-        mobileNav.style.display = "none";
-      } else {
-        mobileNav.style.display = "flex";
-      }
-    });
+// Toggle menu open/close on hamburger click
+menuToggle.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent event from bubbling to document
+  if (mobileNav.style.display === "flex") {
+    mobileNav.style.display = "none";
+  } else {
+    mobileNav.style.display = "flex";
+  }
+});
 
-    // Close menu on link click
-    document.querySelectorAll("#mobileNav a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileNav.style.display = "none";
-      });
-    });
+// Close the menu when a nav link is clicked
+document.querySelectorAll("#mobileNav a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileNav.style.display = "none";
+  });
+});
 
+// Close the menu if clicked outside of the menu and hamburger
+document.addEventListener("click", (e) => {
+  const isClickInsideNav = mobileNav.contains(e.target);
+  const isClickOnHamburger = menuToggle.contains(e.target);
+
+  if (!isClickInsideNav && !isClickOnHamburger) {
+    mobileNav.style.display = "none";
+  }
+});
 

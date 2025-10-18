@@ -2,18 +2,21 @@
   --bg: #eef1f9;
   --fg: #1e1f26;
   --muted: #5b5e77;
-  --accent: #6366f1; /* indigo */
+  --accent: #6366f1;
+  /* indigo */
   --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
-  --card: rgba(255,255,255,0.6);
+  --card: rgba(255, 255, 255, 0.6);
   --blur: 14px;
 }
+
 [data-theme="dark"] {
   --bg: #0b0f19;
   --fg: #f1f5f9;
   --muted: #9ca3af;
-  --accent: #a78bfa; /* soft purple */
+  --accent: #a78bfa;
+  /* soft purple */
   --gradient: linear-gradient(135deg, #4f46e5, #8b5cf6);
-  --card: rgba(17,24,39,0.55);
+  --card: rgba(17, 24, 39, 0.55);
   --blur: 12px;
 }
 
@@ -22,6 +25,7 @@
   transition: background 0.3s, color 0.3s;
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   font-family: "Poppins", system-ui, sans-serif;
@@ -40,11 +44,13 @@ header {
   z-index: 20;
   background: var(--card);
 }
+
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .logo {
   background: var(--gradient);
   color: white;
@@ -65,6 +71,7 @@ header {
   font-weight: 500;
   position: relative;
 }
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -75,6 +82,7 @@ header {
   background: var(--accent);
   transition: 0.3s;
 }
+
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
@@ -86,15 +94,19 @@ header {
   width: 60px;
   height: 28px;
 }
+
 .theme-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .theme-switch .slider {
   position: absolute;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 30px;
   background: var(--muted);
   transition: 0.4s;
@@ -104,25 +116,44 @@ header {
   padding: 0 6px;
   font-size: 14px;
 }
+
 .theme-switch .icon {
   transition: opacity 0.4s, transform 0.4s;
 }
-.theme-switch .moon { opacity: 0; transform: scale(0.8); }
-input:checked + .slider { background: var(--accent); }
-input:checked + .slider .sun { opacity: 0; transform: scale(0.8); }
-input:checked + .slider .moon { opacity: 1; transform: scale(1); }
+
+.theme-switch .moon {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+input:checked+.slider {
+  background: var(--accent);
+}
+
+input:checked+.slider .sun {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+input:checked+.slider .moon {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* Sections */
 section {
   min-height: 100vh;
   padding: 5rem 2rem;
 }
+
 h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
-p, li {
+
+p,
+li {
   color: var(--muted);
   line-height: 1.6;
 }
@@ -136,16 +167,19 @@ p, li {
   min-height: 100vh;
   text-align: center;
 }
+
 .name {
   font-size: clamp(2.5rem, 6vw, 4rem);
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .designation {
   color: var(--muted);
   font-size: 1.3rem;
 }
+
 .scroll-down {
   margin-top: 2rem;
   font-size: 2rem;
@@ -153,9 +187,17 @@ p, li {
   text-decoration: none;
   animation: bounce 1.5s infinite;
 }
+
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
 }
 
 /* Common glass cards */
@@ -172,9 +214,11 @@ p, li {
   border-left: 3px solid var(--accent);
   padding-left: 1rem;
 }
+
 .timeline-item h3 {
   margin: 0;
 }
+
 .timeline-item span {
   font-size: 0.9rem;
   color: var(--muted);
@@ -187,6 +231,7 @@ p, li {
   gap: 1rem;
   text-align: center;
 }
+
 .skill {
   padding: 1rem;
   border-radius: 14px;
@@ -201,7 +246,8 @@ p, li {
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
-  gap: 12px; /* space between achievements */
+  gap: 12px;
+  /* space between achievements */
 }
 
 .achievements-list li {
@@ -209,7 +255,7 @@ p, li {
   gap: 12px;
   padding: 0.8rem 1rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius:  12px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -246,6 +292,7 @@ p, li {
   justify-content: center;
   margin: 2rem auto;
 }
+
 .cell {
   width: 100px;
   height: 100px;
@@ -258,10 +305,12 @@ p, li {
   border-radius: 10px;
   transition: 0.2s;
 }
+
 .cell:hover {
   background: var(--gradient);
   color: white;
 }
+
 #status {
   text-align: center;
   margin: 1rem 0;
@@ -275,11 +324,13 @@ p, li {
   cursor: pointer;
   font-weight: 500;
 }
+
 .accent-btn {
   background: var(--gradient);
   color: white;
   transition: transform 0.2s ease;
 }
+
 .accent-btn:hover {
   transform: translateY(-3px);
 }
@@ -298,25 +349,27 @@ p, li {
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 /* Section card wrapper */
 .section-card {
-  width:60vw;
+  width: 60vw;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 20px;
   text-align: center;
   background: var(--card);
   backdrop-filter: blur(var(--blur));
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Inner card styling (for education, projects etc.) */
 .card-inner {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   padding: 1.5rem;
   border-radius: 15px;
   margin-top: 1rem;
@@ -331,6 +384,7 @@ p, li {
   max-width: 500px;
   margin: 0 auto;
 }
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -341,12 +395,14 @@ p, li {
   color: var(--fg);
   font-size: 1rem;
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
+
 /* ===== Game Rules Modal ===== */
 /* ===== Game Header Layout ===== */
 .game-header {
@@ -355,11 +411,14 @@ p, li {
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  flex-wrap: wrap; /* ensures responsiveness */
+  flex-wrap: wrap;
+  /* ensures responsiveness */
 }
+
 .game-header h2 {
   margin: 0;
 }
+
 .rules-btn {
   font-size: 0.9rem;
   padding: 0.6rem 1.2rem;
@@ -370,6 +429,7 @@ p, li {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .rules-btn:hover {
   transform: translateY(-3px);
 }
@@ -388,6 +448,7 @@ p, li {
   align-items: center;
   justify-content: center;
 }
+
 .modal-content {
   position: relative;
   max-width: 420px;
@@ -397,22 +458,27 @@ p, li {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   animation: slideUp 0.4s ease;
 }
+
 .modal-content h3 {
   text-align: center;
   margin-bottom: 1rem;
 }
+
 .modal-content ul {
   list-style: none;
   padding: 0;
   color: black;
   line-height: 1.6;
 }
+
 .modal-content li {
   margin: 0.4rem 0;
 }
+
 .modal-content li strong {
   color: var(--accent);
 }
+
 .close-btn {
   position: absolute;
   top: 12px;
@@ -422,6 +488,7 @@ p, li {
   color: var(--accent);
   transition: 0.2s;
 }
+
 .close-btn:hover {
   transform: scale(1.2);
 }
@@ -459,7 +526,8 @@ p, li {
 /* ===== Experience Carousel ===== */
 .experience-carousel {
   display: flex;
-  overflow: hidden; /* hide excess content */
+  overflow: hidden;
+  /* hide excess content */
   position: relative;
   width: 100%;
   scroll-snap-type: x mandatory;
@@ -467,39 +535,47 @@ p, li {
 
 .exp-card {
   flex: 0 0 100%;
-  scroll-snap-align: start; /* align to left */
-  margin: 1rem; /* spacing around card */
+  scroll-snap-align: start;
+  /* align to left */
+  margin: 1rem;
+  /* spacing around card */
   padding: 2rem;
   /* horizontal offset, vertical offset, blur, spread, color */
-  box-shadow: 0 0 15px 0 var(--accent); 
+  box-shadow: 0 0 15px 0 var(--accent);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .exp-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px 0 var(--accent); /* stronger shadow on all sides */
+  box-shadow: 0 0 25px 0 var(--accent);
+  /* stronger shadow on all sides */
 }
 
 
-.exp-card h3, h2 {
+.exp-card h3,
+h2 {
   margin-bottom: 0.3rem;
   color: var(--accent);
 }
+
 .exp-card h4 {
   margin: 0;
   font-size: 1rem;
   color: var(--muted);
 }
+
 .exp-card ul {
   list-style: none;
   padding-left: 1rem;
   margin-top: 1rem;
   text-align: left;
 }
+
 .exp-card li {
   margin-bottom: 0.5rem;
   position: relative;
 }
+
 .exp-card li::before {
   content: "•";
   color: var(--accent);
@@ -513,6 +589,7 @@ p, li {
   gap: 1rem;
   margin-top: 1rem;
 }
+
 .carousel-btn {
   background: var(--gradient);
   color: #fff;
@@ -525,6 +602,7 @@ p, li {
   line-height: 1;
   transition: transform 0.2s;
 }
+
 .carousel-btn:hover {
   transform: scale(1.1);
 }
@@ -532,7 +610,8 @@ p, li {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px; /* more spacing between skill cards */
+  gap: 16px;
+  /* more spacing between skill cards */
   margin-top: 1rem;
 }
 
@@ -540,17 +619,21 @@ p, li {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* space between icon and text */
+  gap: 10px;
+  /* space between icon and text */
   text-align: center;
-  width: 180px;   /* fixed width */
-  height: 60px;   /* fixed height */
+  width: 180px;
+  /* fixed width */
+  height: 60px;
+  /* fixed height */
   padding: 0.6rem 1rem;
   border-radius: 12px;
   font-weight: 500;
   font-size: 0.95rem;
   margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* subtle border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: var(--glass-bg, rgba(255, 255, 255, 0.05));
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -558,7 +641,7 @@ p, li {
 /* Slight hover effect */
 .skill:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -600,14 +683,15 @@ p, li {
 
 .contact-link {
   display: flex;
-  flex-direction: column; /* stack icon + label */
+  flex-direction: column;
+  /* stack icon + label */
   align-items: center;
   justify-content: center;
   width: 80px;
   height: 80px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.05);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   text-decoration: none;
   color: inherit;
@@ -615,7 +699,7 @@ p, li {
 
 .contact-link:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 .contact-icon {
@@ -634,8 +718,10 @@ p, li {
   .nav-links {
     display: none;
   }
-  .section-card,.about-card {
-  width:80vw;
+
+  .section-card,
+  .about-card {
+    width: 80vw;
   }
 
   .hamburger {
@@ -648,32 +734,33 @@ p, li {
     z-index: 1001;
   }
 
-.mobile-nav {
-      display: none;
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: var(--card);
-      flex-direction: column;
-      padding: 1rem 2rem;
-      z-index: 999;
-      border-radius: 0 0 12px 12px;
-      animation: slideDown 0.3s ease forwards;
-    }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 40vw;
+    background: var(--card);
+    flex-direction: column;
+    padding: 1rem 2rem;
+    z-index: 999;
+    border-radius: 0 0 12px 12px;
+    animation: slideDown 0.3s ease forwards;
+  }
 
-    .mobile-nav a {
-      padding: 1rem 0;
-      color: var(--fg);
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: color 0.3s;
-    }
+  .mobile-nav a {
+    padding: 1rem 0;
+    color: var(--fg);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color 0.3s;
+  }
 
-    .mobile-nav a:hover {
-      color: var(--accent);
-    }
+  .mobile-nav a:hover {
+    color: var(--accent);
+  }
 
 
   @keyframes slideDown {
@@ -681,6 +768,7 @@ p, li {
       opacity: 0;
       transform: translateY(-10px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
