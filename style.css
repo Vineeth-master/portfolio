@@ -376,6 +376,32 @@ li {
   padding: 1.5rem;
   border-radius: 15px;
   margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-inner:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* deeper shadow on hover */
+}
+
+.card-inner.bg-primary {
+  background: rgba(0, 123, 255, 0.15);
+}
+.card-inner.bg-success {
+  background: rgba(40, 167, 69, 0.15);
+}
+.card-inner.bg-danger {
+  background: rgba(220, 53, 69, 0.15);
+}
+.card-inner.bg-warning {
+  background: rgba(255, 193, 7, 0.15);
+}
+.card-inner.bg-info {
+  background: rgba(23, 162, 184, 0.15);
+}
+.card-inner.bg-dark {
+  background: rgba(52, 58, 64, 0.3);
 }
 
 /* Contact form */

@@ -111,6 +111,11 @@ function getRandomBorderColor() {
   const b = Math.floor((Math.random() * 127) + 128);
   return `rgba(${r}, ${g}, ${b}, 0.4)`; // border color
 }
+const skills = document.querySelectorAll('.skill');
+skills.forEach(skill => {
+  skill.style.background = getRandomPastelColor();
+  skill.style.border = `1px solid ${getRandomBorderColor()}`;
+});
 
 // Apply random colors to each skill card
 const menuToggle = document.getElementById("menuToggle");
