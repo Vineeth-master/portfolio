@@ -52,15 +52,15 @@ header {
 }
 
 .logo {
-  background: var(--gradient);
+  /* background: var(--gradient);
   color: white;
   font-weight: 700;
-  border-radius: 10px;
+  border-radius: 10px; */
   width: 40px;
   height: 40px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 /* Navigation */
@@ -166,6 +166,9 @@ li {
   justify-content: center;
   min-height: 100vh;
   text-align: center;
+}
+.contact{
+ min-height: 80vh !important;
 }
 
 .name {
@@ -721,7 +724,7 @@ h2 {
 
   .section-card,
   .about-card {
-    width: 80vw;
+    width: 85vw;
   }
 
   .hamburger {
