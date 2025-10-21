@@ -148,3 +148,15 @@ document.addEventListener("click", (e) => {
   }
 });
 
+const projectCarousel = document.querySelector('.projects-carousel');
+const nextBtn = document.querySelector('#projects .next');
+const prevBtn = document.querySelector('#projects .prev');
+
+nextBtn.addEventListener('click', () => {
+  projectCarousel.scrollBy({ left: projectCarousel.offsetWidth, behavior: 'smooth' });
+});
+
+prevBtn.addEventListener('click', () => {
+  projectCarousel.scrollBy({ left: -projectCarousel.offsetWidth, behavior: 'smooth' });
+});
+
