@@ -207,7 +207,7 @@ li {
 .glass {
   background: var(--card);
   backdrop-filter: blur(var(--blur));
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 /* Experience timeline */
@@ -236,7 +236,7 @@ li {
 }
 
 .skill {
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 14px;
   font-weight: 600;
   background: var(--card);
@@ -639,7 +639,7 @@ h2 {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
+  gap: 32px;
   /* more spacing between skill cards */
   margin-top: 1rem;
 }
